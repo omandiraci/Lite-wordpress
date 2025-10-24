@@ -18,7 +18,7 @@ services:
       --long-query-time=2
     volumes:
       - mysqlvolume:/var/lib/mysql
-      - ./logs:/var/log/mysql
+      - ./logs/database:/var/log/mysql
     networks:
       - wpnet
     security_opt:
@@ -39,7 +39,7 @@ services:
       - "8080:80"
     volumes:
       - wpvolume:/var/www/html
-      - ./logs:/var/log/apache2
+      - ./logs/wordpress:/var/log/apache2
     networks:
       - wpnet
     security_opt:
