@@ -11,18 +11,29 @@ Bu proje Docker kullanarak WordPress ve MySQL veritabanını kolayca çalıştı
 
 1. Projeyi klonlayın:
 ```bash
-git clone <repository-url>
-cd Lite-Workpress
+git clone https://github.com/omandiraci/Lite-wordpress.git
+cd Lite-wordpress
 ```
 
-2. `.env` dosyası oluşturun:
+2. `.env` dosyası oluşturun (3 seçenek):
+
+**Seçenek A: Otomatik Kurulum (Önerilen)**
+```bash
+./setup.sh
+```
+
+**Seçenek B: Manuel Kurulum**
 ```bash
 cp .env.example .env
+# .env dosyasını düzenleyin ve şifreleri değiştirin
 ```
 
-3. `.env` dosyasını düzenleyin ve gerekli değişkenleri ayarlayın.
+**Seçenek C: Varsayılan Değerlerle**
+```bash
+# .env dosyası olmadan çalışır (güvenlik riski!)
+```
 
-4. Docker container'ları başlatın:
+3. Docker container'ları başlatın:
 ```bash
 docker-compose up -d
 ```
@@ -82,8 +93,8 @@ Kapsamlı kurulum ve kullanım kılavuzu için [GUIDE.md](GUIDE.md) dosyasını 
 
 ```bash
 # Projeyi klonlayın
-git clone <repository-url>
-cd Lite-Workpress
+git clone https://github.com/omandiraci/Lite-wordpress.git
+cd Lite-wordpress
 
 # Container'ları başlatın
 docker-compose up -d

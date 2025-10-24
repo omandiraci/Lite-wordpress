@@ -1,0 +1,41 @@
+# Docker Compose Override - Geliştirme ortamı için
+# Bu dosya .env dosyası yoksa varsayılan değerleri kullanır
+
+version: "3.9"
+
+services:
+  db:
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-wpdatabase}
+      MYSQL_USER: ${MYSQL_USER:-wpuser}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-defaultpassword123}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-rootpassword123}
+
+  wordpress:
+    environment:
+      WORDPRESS_DB_HOST: ${WORDPRESS_DB_HOST:-db}
+      WORDPRESS_DB_USER: ${WORDPRESS_DB_USER:-wpuser}
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD:-defaultpassword123}
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME:-wpdatabase}
+      
+      # WordPress Security Keys (varsayılan değerler - ÜRETİMDE DEĞİŞTİRİN!)
+      WORDPRESS_AUTH_KEY: ${WORDPRESS_AUTH_KEY:-default-auth-key-change-in-production}
+      WORDPRESS_SECURE_AUTH_KEY: ${WORDPRESS_SECURE_AUTH_KEY:-default-secure-auth-key-change-in-production}
+      WORDPRESS_LOGGED_IN_KEY: ${WORDPRESS_LOGGED_IN_KEY:-default-logged-in-key-change-in-production}
+      WORDPRESS_NONCE_KEY: ${WORDPRESS_NONCE_KEY:-default-nonce-key-change-in-production}
+      WORDPRESS_AUTH_SALT: ${WORDPRESS_AUTH_SALT:-default-auth-salt-change-in-production}
+      WORDPRESS_SECURE_AUTH_SALT: ${WORDPRESS_SECURE_AUTH_SALT:-default-secure-auth-salt-change-in-production}
+      WORDPRESS_LOGGED_IN_SALT: ${WORDPRESS_LOGGED_IN_SALT:-default-logged-in-salt-change-in-production}
+      WORDPRESS_NONCE_SALT: ${WORDPRESS_NONCE_SALT:-default-nonce-salt-change-in-production}
+      
+      # WordPress Security Settings
+      WORDPRESS_DEBUG: ${WORDPRESS_DEBUG:-false}
+      WORDPRESS_DEBUG_LOG: ${WORDPRESS_DEBUG_LOG:-false}
+      WORDPRESS_DEBUG_DISPLAY: ${WORDPRESS_DEBUG_DISPLAY:-false}
+      WORDPRESS_SCRIPT_DEBUG: ${WORDPRESS_SCRIPT_DEBUG:-false}
+      WORDPRESS_DISALLOW_FILE_EDIT: ${WORDPRESS_DISALLOW_FILE_EDIT:-true}
+      WORDPRESS_DISALLOW_FILE_MODS: ${WORDPRESS_DISALLOW_FILE_MODS:-true}
+      WORDPRESS_FORCE_SSL_ADMIN: ${WORDPRESS_FORCE_SSL_ADMIN:-false}
+      WORDPRESS_WP_POST_REVISIONS: ${WORDPRESS_WP_POST_REVISIONS:-3}
+      WORDPRESS_AUTOSAVE_INTERVAL: ${WORDPRESS_AUTOSAVE_INTERVAL:-300}
+      WORDPRESS_EMPTY_TRASH_DAYS: ${WORDPRESS_EMPTY_TRASH_DAYS:-7}

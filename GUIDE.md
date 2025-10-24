@@ -42,13 +42,13 @@ git --version
 ### 1. Projeyi İndirin
 ```bash
 # GitHub'dan klonlayın
-git clone https://github.com/KULLANICI_ADINIZ/Lite-Workpress.git
-cd Lite-Workpress
+git clone https://github.com/omandiraci/Lite-wordpress.git
+cd Lite-wordpress
 
 # Veya ZIP olarak indirin ve açın
-wget https://github.com/KULLANICI_ADINIZ/Lite-Workpress/archive/main.zip
+wget https://github.com/omandiraci/Lite-wordpress/archive/main.zip
 unzip main.zip
-cd Lite-Workpress-main
+cd Lite-wordpress-main
 ```
 
 ### 2. Environment Dosyasını Kontrol Edin
@@ -354,7 +354,7 @@ open http://localhost:3000
 - [MySQL Documentation](https://dev.mysql.com/doc/)
 
 ### Topluluk
-- [GitHub Issues](https://github.com/KULLANICI_ADINIZ/Lite-Workpress/issues)
+- [GitHub Issues](https://github.com/omandiraci/Lite-wordpress/issues)
 - [Docker Community](https://forums.docker.com/)
 - [WordPress Support](https://wordpress.org/support/)
 
