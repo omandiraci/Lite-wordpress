@@ -12,6 +12,8 @@ wpvolume/
 # Logs
 *.log
 logs/
+logs/*
+!logs/.gitkeep
 
 # OS generated files
 .DS_Store

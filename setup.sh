@@ -35,6 +35,10 @@ generate_key() {
     openssl rand -hex 32
 }
 
+# Logs klasörünü oluştur
+mkdir -p logs
+echo -e "${GREEN}📁 Logs klasörü oluşturuldu${NC}"
+
 echo -e "${GREEN}🔐 Güvenli şifreler ve anahtarlar oluşturuluyor...${NC}"
 
 # Şifreler oluştur
