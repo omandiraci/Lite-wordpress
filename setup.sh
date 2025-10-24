@@ -30,9 +30,9 @@ generate_password() {
     openssl rand -base64 32 | tr -d "=+/" | cut -c1-25
 }
 
-# Güvenlik anahtarı oluşturma fonksiyonu
+# Güvenlik anahtarı oluşturma fonksiyonu (Docker Compose uyumlu)
 generate_key() {
-    openssl rand -base64 64
+    openssl rand -hex 32
 }
 
 echo -e "${GREEN}🔐 Güvenli şifreler ve anahtarlar oluşturuluyor...${NC}"
