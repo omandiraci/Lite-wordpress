@@ -9,11 +9,13 @@ services:
       - .env
     environment:
       MYSQL_RANDOM_ROOT_PASSWORD: "true"
-      MYSQL_LOG_ERROR: "/var/log/mysql/error.log"
-      MYSQL_GENERAL_LOG: "1"
-      MYSQL_GENERAL_LOG_FILE: "/var/log/mysql/general.log"
-      MYSQL_SLOW_QUERY_LOG: "1"
-      MYSQL_SLOW_QUERY_LOG_FILE: "/var/log/mysql/slow.log"
+    command: >
+      --log-error=/var/log/mysql/error.log
+      --general-log=1
+      --general-log-file=/var/log/mysql/general.log
+      --slow-query-log=1
+      --slow-query-log-file=/var/log/mysql/slow.log
+      --long-query-time=2
     volumes:
       - mysqlvolume:/var/lib/mysql
       - ./logs:/var/log/mysql
