@@ -1,0 +1,38 @@
+version: "3.9"
+
+services:
+  db:
+    image: mysql:latest
+    container_name: mysqlsunucu
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: "true"
+    volumes:
+      - mysqlvolume:/var/lib/mysql
+    networks:
+      - wpnet
+
+  wordpress:
+    image: wordpress:latest
+    container_name: wpsunucu
+    depends_on:
+      - db
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "8080:80"
+    volumes:
+      - wpvolume:/var/www/html
+    networks:
+      - wpnet
+
+volumes:
+  mysqlvolume:
+  wpvolume:
+
+networks:
+  wpnet:
+    driver: bridge
