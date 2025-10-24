@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   db:
-    image: mysql:latest
+    image: mysql:8.0
     container_name: mysqlsunucu
     restart: unless-stopped
     env_file:
@@ -13,9 +13,15 @@ services:
       - mysqlvolume:/var/lib/mysql
     networks:
       - wpnet
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /tmp
+      - /var/run/mysqld
 
   wordpress:
-    image: wordpress:latest
+    image: wordpress:6.4-apache
     container_name: wpsunucu
     depends_on:
       - db
@@ -28,6 +34,13 @@ services:
       - wpvolume:/var/www/html
     networks:
       - wpnet
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /tmp
+      - /var/run/apache2
+    user: "33:33"
 
 volumes:
   mysqlvolume:
