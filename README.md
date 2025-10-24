@@ -62,7 +62,9 @@ Bu proje aşağıdaki güvenlik önlemlerini içerir:
 - ✅ **No New Privileges**: Container'lar yeni yetkiler alamaz
 - ✅ **Specific User**: WordPress www-data kullanıcısı ile çalışır
 - ✅ **Tmpfs**: Geçici dosyalar RAM'de saklanır
-- ✅ **Specific Versions**: Sabit sürüm numaraları kullanılır
+- ✅ **Specific Versions**: MySQL 8.0 ve WordPress 6.4-apache sabit sürümleri
+- ✅ **Container Isolation**: Her servis izole edilmiş network'te çalışır
+- ✅ **Memory-only Temp**: Geçici dosyalar disk yerine RAM'de saklanır
 
 ### Ek Güvenlik Önerileri
 1. **Güçlü Şifreler**: Admin, FTP ve veritabanı şifrelerini güçlü tutun
@@ -71,6 +73,24 @@ Bu proje aşağıdaki güvenlik önlemlerini içerir:
 4. **Düzenli Güncellemeler**: WordPress, tema ve eklentileri güncel tutun
 5. **Yedekleme**: Düzenli yedekleme yapın
 6. **SSL Sertifikası**: Üretim ortamında SSL sertifikası kullanın
+
+## 📚 Detaylı Kılavuz
+
+Kapsamlı kurulum ve kullanım kılavuzu için [GUIDE.md](GUIDE.md) dosyasını inceleyin.
+
+## 🚀 Hızlı Başlangıç
+
+```bash
+# Projeyi klonlayın
+git clone <repository-url>
+cd Lite-Workpress
+
+# Container'ları başlatın
+docker-compose up -d
+
+# WordPress'e erişin
+open http://localhost:8080
+```
 
 ## Lisans
 
